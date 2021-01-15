@@ -123,7 +123,7 @@ kbd{
 
 #sponsers{
   height: 52vh;
-  margin-top: 3.5vh;
+  margin-top: 5vh;
   border: 3px #30E7ED solid;
   
   overflow-y: auto;
@@ -140,7 +140,7 @@ video {
   -moz-transform:rotateY(180deg); /* Firefox */
 }
 footer{
-  margin-top: 3vh;
+  margin-top: 6vh;
 }
 #content {position:relative;}
 #content:before, #content:after, #content>:first-child:before, #content>:first-child:after {
