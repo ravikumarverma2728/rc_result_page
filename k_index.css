@@ -1,0 +1,42 @@
+video {
+  width:100vw;
+  height:103vh;
+  object-fit:cover;
+  z-index:-1;
+  position:absolute;
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
+  /* overflow-y: hidden; */
+}
+
+#content {position:relative;}
+#content:before, #content:after, #content>:first-child:before, #content>:first-child:after {
+  position:absolute;
+  width:80px; height: 80px;
+  border-color:#0dcaf0; /* or whatever colour */
+  border-style:solid; /* or whatever style */
+  content: ' ';
+}
+#content:before {top:0;left:0;border-width: 1px 0 0 1px}
+#content:after {top:0;right:0;border-width: 1px 1px 0 0}
+#content>:first-child:before {bottom:0;right:0;border-width: 0 1px 1px 0}
+#content>:first-child:after {bottom:0;left:0;border-width: 0 0 1px 1px}
+
+kbd{
+  font-size: x-large;
+}
+
+.kbd-inverted{
+  color: black;
+  background-color: white;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+}
+
+.mdi-record::before {
+  color: red !important;
+  animation: fadeIn 0.5s infinite alternate
+}
