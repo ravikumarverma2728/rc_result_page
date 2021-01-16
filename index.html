@@ -16,59 +16,62 @@
 			integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
 			crossorigin="anonymous"
 		></script>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css"
+		/>
 		
 	</head>
 	<body>
-		<header>
-        <!-- NAVBAR -->
-	        <nav id="navbar" class="navbar navbar-expand    ">
-	            <a class="navbar-brand" href="#">
-	                <img  src="RC_logo.jpeg" width="65" height="35" alt="" loading="lazy" />
-	            </a>
-	            
-	            <!-- Toggle Button -->
-	            
-	        
-	            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	                <ul class="navbar-nav ml-auto">
-	                   <a href="#" class="pisblogo ">
-	                <img src="logo pisb_2.png" width="110" height="35" alt="" loading="lazy"  />
-	            </a>   
-	                </ul>
-	            </div>
-	                 
-	        </nav>
-        </header>
+		
 		<video></video>
+		<div id="navbar" class="row justify-content-between mx-1  g-4">
+			<div class="col">
+				<img src="rc.png" alt="" width="65" height="35" style="background-color: rgba(0, 0, 0, 0.25);">
+			</div>
+			<div class="col text-end">
+				<img src="logo pisb_2.png" alt="" width="110" height="35">
+			</div>
+		</div> 
 	
 		<div  class="row ">
 		
 			<div id="sponsers"  class="col-sm-2 col-8 text-center">
                 <div  class="row ">
                      <div id="sponsortitle" class="col-sm-12   text-center font-weight-bold  bg-transparent">
-                        SPONSORS
+                        CLASH
                      </div>
+                     <p id="clashtext" class="text-white font  mt-4 " style="background-color: rgba(0, 0, 0, 0.3)">
+                       A C/C++ coding competition held in high regard for the conceptual challenges it bring to a coder's mind.'C'-LASH beckons all the programmers out there,amateur and experienced alike,to participate and enhance their coding skills!
+                     </p>
                  </div>
 			</div>
 			<div id="maincol" class="col-sm-8 col-12 ">
-				<div id="content" style="height: 75vh">
+				<div id="content" style="height: 78vh">
 					<div
 						class="container text-white py-3"
 						style="
-							height: 75vh;
+							height: 78vh;
 							display: flex;
 							flex-direction: column;
 							justify-content: space-between;
 						"
 					>
 						<div class="row justify-content-between">
-							<div class="col">
-								<kbd>USERNAME</kbd><br />
-								<kbd>DUMMY123</kbd>
+							<div id="user" class="col-3  ">
+								<kbd class="mdi mdi-account"></kbd>
+								<kbd id="u">DUMMY123</kbd>
 							</div>
-							<div class="col text-end">
-								<kbd>SCORE</kbd><br />
-								<kbd>100</kbd>
+							<div class="col-1  " id="battery"></div>
+							<div id="r" class="col-4  ">
+								<kbd id="scres" class="mdi mdi-fullscreen "></kbd>
+							</div>
+							<div id="rec" class="col-2 ">
+								<kbd class="mdi mdi-record">REC</kbd>
+							</div>
+							<div class="col  text-end ">
+								<kbd id="s" class="mdi mdi-trophy"> SCORE</kbd>
+								<kbd id="n">100</kbd>
 							</div>
 						</div>
 						<div class="row justify-content-center">
@@ -81,11 +84,11 @@
 						<div class="row justify-content-between">
 							<div class="col">
 								<kbd>QUESTIONS ATTEMPTED</kbd><br />
-								<kbd>20</kbd>
+								<kbd class="number">20</kbd>
 							</div>
 							<div class="col text-end">
 								<kbd>CORRECT ANSWERED</kbd><br />
-								<kbd>20</kbd>
+								<kbd class="number">20</kbd>
 							</div>
 						</div>
 					</div>
@@ -94,20 +97,18 @@
 			<div id="clash" class="col-sm-2 col-8 text-center">
                   <div  class="row ">
                      <div id="clashtitle" class="col-sm-12   text-center font-weight-bold  bg-transparent">
-                        CLASH
+                        SPONSERS
                      </div>
                   </div>
-				  <p class="text-white font  mt-4">
-                       A C/C++ coding competition held in high regard for the conceptual challenges it bring to a coder's mind.'C'-LASH beckons all the programmers out there,amateur and experienced alike,to participate and enhance their coding skills!
-                     </p>
+				  
 			</div>
 		</div>
 	</div>
-	    <footer class="text-center fixed-bottom ">
-            <div class="conatiner-fluid">
-                <div class="footer-text text-white pt-2 pb-2">PISB <span>&copy</span></div>
-            </div>
-        </footer>
+	    <footer class="text-center fixed-bottom">
+			<div class="footer-text text-white py-2">
+				PISB <span>&copy</span>
+			</div>
+		</footer>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
@@ -139,13 +140,78 @@
 					}
 				)
 
+				// function gcd(a, b) {
+				// 	return b == 0 ? a : gcd(b, a % b)
+				// }
+
+				var dpr = window.devicePixelRatio
+				var w = Math.round(screen.width * dpr)
+				var h = Math.round(screen.height * dpr)
+				// var r = gcd(w, h)
+				document
+					.getElementById("scres")
+					.appendChild(document.createTextNode(w + "x" + h))
+
+				navigator
+					.getBattery()
+					.then(function (battery) {
+						function updateAllBatteryInfo() {
+							updateChargeInfo()
+							updateLevelInfo()
+						}
+						updateAllBatteryInfo()
+
+						battery.addEventListener("chargingchange", function () {
+							updateChargeInfo()
+						})
+						function updateChargeInfo() {
+							console.log(
+								"Battery charging? " +
+									(battery.charging ? "Yes" : "No")
+							)
+							var batt = document.getElementById("battery")
+							if (batt.childElementCount)
+								batt.removeChild(batt.firstElementChild)
+							var newEl = document.createElement("kbd")
+							newEl.className =
+								"mdi mdi-battery" +
+								(battery.charging ? "-charging" : "") +
+								"-" +
+								Math.floor(battery.level * 10) * 10
+							batt.appendChild(newEl)
+						}
+
+						battery.addEventListener("levelchange", function () {
+							updateLevelInfo()
+						})
+						function updateLevelInfo() {
+							console.log(
+								"Battery level: " +
+									Math.floor(battery.level * 10) * 10 +
+									"%"
+							)
+							var batt = document.getElementById("battery")
+							if (batt.childElementCount)
+								batt.removeChild(batt.firstElementChild)
+							var newEl = document.createElement("kbd")
+							newEl.className =
+								"mdi mdi-battery" +
+								(battery.charging ? "-charging" : "") +
+								"-" +
+								Math.floor(battery.level * 10) * 10
+							batt.appendChild(newEl)
+						}
+					})
+					.catch(console.log)
+
 				video.addEventListener(
 					"canplay",
 					function (ev) {
-						if (!streaming) {
+						if (!ev.streaming) {
 							height =
-								video.videoHeight / (video.videoWidth / width)
-							video.setAttribute("width", width)
+								video.videoHeight /
+								(video.videoWidth / ev.width)
+							video.setAttribute("width", ev.width)
 							video.setAttribute("height", height)
 							streaming = !0
 						}
