@@ -1,9 +1,6 @@
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
-
-
-    
+    overflow-x: hidden;    
 }
 
  body{
@@ -20,7 +17,7 @@ html, body {
 }
 video {
   width:100vw;
-  height:97%;
+  height:100%;
   object-fit:cover;
   z-index:-1;
   position:absolute;
@@ -153,6 +150,7 @@ kbd{
   margin-left: 7.5vw;
 }
 
+
 #sponsers{
   height: 52vh;
   margin-top: 5vh;
@@ -212,6 +210,7 @@ margin-left: 6vw;
 padding-left: 5vw;
 }
 }
+
 @media (max-width: 321px){
 
 #maincol{
@@ -290,6 +289,22 @@ margin-top: 6vh;
 }
 #maincol{
 margin-top: 6vh;
+}
+}
+@media (min-width:1530px){
+#u{
+  display: block;
+  
+}
+video {
+  width:100vw;
+  height:100%;
+  object-fit:cover;
+  z-index:-1;
+  position:absolute;
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
 }
 }
 @media (min-width:1600px){
